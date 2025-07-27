@@ -4,4 +4,9 @@ Welcome to my first blog post! I figured an easy target for a first post might b
 
 ## What is ClickFix?
 
-If you're not familiar, 
+If you're not familiar, ClickFix is a social engineering attack where users are tricked into running programs or commands to fix a perceived issue with a site or document. A common one these days is a fake CAPTCHA popup asking the user to use the Windows key + R to run a command in order to prove that the user is not a robot. Secretly, the page has copied a malicious command to the user's clipboard, so they will download and execute malware when running the command.
+
+![A CLickFix fake CAPTCHA](/images/clickfix/typical-clickfix.png)
+
+*A typical ClickFix fake CAPTCHA*
+
