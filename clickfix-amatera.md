@@ -128,8 +128,8 @@ There is an IP address in the strings, so I looked it up in VirusTotal. A commen
 
 I found two great reports on Amatera, which I reviewed before continuing analysis:
 
-* https://www.proofpoint.com/us/blog/threat-insight/amatera-stealer-rebranded-acr-stealer-improved-evasion-sophistication
-* https://github.com/VenzoV/MalwareAnalysisReports/blob/main/AmateraStealer/Amatera%20Stealer%20v1.md
+* [https://www.proofpoint.com/us/blog/threat-insight/amatera-stealer-rebranded-acr-stealer-improved-evasion-sophistication](https://www.proofpoint.com/us/blog/threat-insight/amatera-stealer-rebranded-acr-stealer-improved-evasion-sophistication)
+* [https://github.com/VenzoV/MalwareAnalysisReports/blob/main/AmateraStealer/Amatera%20Stealer%20v1.md](https://github.com/VenzoV/MalwareAnalysisReports/blob/main/AmateraStealer/Amatera%20Stealer%20v1.md)
 
 Most of the functionality observed in this sample aligned with the existing reports, but some differences, mainly with the config parsing, lead me to believe that this is an early developmental stage of the stealer.
 
