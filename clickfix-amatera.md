@@ -1,6 +1,6 @@
 # ClickFix Leads to Half-Baked Amatera Stealer
 
-Welcome to my first blog post! I figured an easy target for a first post might be a ClickFix chain since that is all the rage right now. This one turned out kind of interesting because the phishing page and the resulting payload seem like they are under development or something because the are really janky.
+Welcome to my first blog post! I figured an easy target for a first post might be a ClickFix chain since that is all the rage right now. This one turned out kind of interesting because the phishing page and the resulting Amatera payload seem like they are under development or something because they are really janky. In addition to the Amatera stealer payload, this chain drops a .NET executable that configures the users' browsers to proxy traffic through the attacker's server.
 
 Contents:
 * [What is ClickFix](#what-is-clickfix)
@@ -9,6 +9,8 @@ Contents:
 * [i4756ms.exe](#i4756msexe)
 * [4756ms.exe and Qt6Core.dll](#4756msexe-and-qt6coredll)
 * [Amatera stealer](#amatera-stealer-payload)
+* [hostUpdatei4756ms.exe](#hostupdatei4756msexe)
+* [IOCs](#iocs)
 
 ## What is ClickFix?
 
