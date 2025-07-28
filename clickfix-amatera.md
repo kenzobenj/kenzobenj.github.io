@@ -14,7 +14,7 @@ Contents:
 
 ## What is ClickFix?
 
-If you're not familiar, ClickFix is a social engineering attack where users are tricked into running programs or commands to fix a perceived issue with a site or document. A common one these days is a fake CAPTCHA popup asking the user to press the Windows key + R and Ctrl + V in order to prove that the user is not a robot. Secretly, the page has copied a malicious command to the user's clipboard, so that key combination will run the command, which typically downloads and executes additional stages of malware.
+If you're not familiar, ClickFix is a social engineering attack where users are tricked into running programs or commands to fix a perceived issue with a site or document. A common one these days is a fake CAPTCHA popup asking the user to press the Windows key + R and Ctrl + V in order to prove that the user is not a robot. Secretly, the page has copied a malicious command to the user's clipboard and that key combination will run the command, which typically downloads and executes additional stages of malware.
 
 ![A ClickFix fake CAPTCHA](/images/clickfix/typical-clickfix.png)
 
@@ -106,7 +106,7 @@ Inspecting the address of the buffer in the first WriteProcessMemory call, it lo
 
 *PE file found in memory*
 
-In a very unscientific fashion, I just scrolled down in the dumpm until it looked like there wasn't anymore data and I dumped from the start address to that point.
+In a very unscientific fashion, I just scrolled down in the dump until it looked like there wasn't any more data and I dumped from the start address to that point.
 
 ## Amatera stealer payload
 
@@ -136,10 +136,14 @@ Most of the functionality observed in this sample aligned with the existing repo
 The program executes these main steps:
 
 1) Resolve Windows APIs
+
 2) Create a mutex with a hardcoded GUID value
    - This value is also used as the auth header when establishing a C2 session and as the RC4 key to decrypt the config
+
 4) Establish session with hardcoded C2 and fetch the config
+
 5) Parse the config (incomplete)
+
 6) Collect and send the following to the C2:
    - System information
    - Telegram, Filezilla, Discord, AnyDesk, Binance, Steam, and Bitcoin wallet information
