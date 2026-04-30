@@ -5,3 +5,4 @@ On here I'll document some of the things I'm working on. It's really ugly right 
 ### Malware Analysis
 
 * [ClickFix Leads to Half-Baked Amatera Stealer - 7/27/2025](/clickfix-amatera.md)
+* [MiningDropper Analysis - 4/29/2026](/miningdropper.md)
