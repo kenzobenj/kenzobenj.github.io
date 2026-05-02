@@ -176,7 +176,7 @@ When triggered (e.g. every initial unlock after reboot), it starts a service tha
 
 ![BroadCastReceiver onStart method](/images/miningdropper/Pasted%20image%2020260426135934.png)
 
-*Psychosome onStart executes the fake update notification, MP3 keepalive, and crypto miner*
+*Psychosome onStartCommand executes the fake update notification, MP3 keepalive, and crypto miner*
 
 The XMRig binary is downloaded from one of five hardcoded base URLs. In this case, only one URL is configured and the rest are placeholders of the format `https://www.backupdomain2026xxx00<index>`. Below is a screenshot of the decrypted strings:
 
@@ -209,12 +209,32 @@ I didn't look too closely at the internal workings of the third stage loader. Th
 
 Miner config:
 ```
-{"isRemoteControl": false, "isTestKeyEnabled": false, "splits": ["dimensum"], "subscriptionEndMillis": 4611686018427387903, "messageAuthenticationCode": "eVAmHju3UqrVWR56gOMaUQ==", "simpleInstaller": "deprecated"}
+{
+    "isRemoteControl": false,
+    "isTestKeyEnabled": false,
+    "splits": [
+        "dimensum"
+    ],
+    "subscriptionEndMillis": 4611686018427388000,
+    "messageAuthenticationCode": "eVAmHju3UqrVWR56gOMaUQ==",
+    "simpleInstaller": "deprecated"
+}
 ```
 
 User config:
 ```
-{"isRemoteControl": true, "isTestKeyEnabled": false, "splits": ["tainosemihardness", "quintuplesquarrosely", "hoochinoo"], "subscriptionEndMillis": 1777901939986, "messageAuthenticationCode": "edeAe6usV2MbTHYNQdqs4A==", "simpleInstaller": "deprecated"}
+{
+    "isRemoteControl": true,
+    "isTestKeyEnabled": false,
+    "splits": [
+        "tainosemihardness",
+        "quintuplesquarrosely",
+        "hoochinoo"
+    ],
+    "subscriptionEndMillis": 1777901939986,
+    "messageAuthenticationCode": "edeAe6usV2MbTHYNQdqs4A==",
+    "simpleInstaller": "deprecated"
+}
 ```
 
 The developer left a friendly message in the `SplitApkInstaller` class :)
