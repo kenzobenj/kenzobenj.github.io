@@ -2,7 +2,7 @@
 
 ![](/images/miningdropper/Pasted%20image%2020260501195519.png)
 
-MiningDropper, AKA BeatBanker, is an Android malware family that uses multiple stages of encrypted DEX and APK files loaded via native libraries. It serves two purposes: first, it downloads and executes a cryptocurrency miner, which it controls with Firebase messaging and monitors with a self-hosted Aptabase metrics server, and second it drops user-defined payloads - in this case BTMOB RAT. A recent MiningDropper campaign has been using trojanized versions of open-source applications for delivery. 
+MiningDropper, AKA BeatBanker, is an Android malware family that uses multiple stages of encrypted DEX and APK files loaded via native libraries. It serves two purposes: it downloads and executes a cryptocurrency miner, which it controls with Firebase messaging and monitors with a self-hosted Aptabase metrics server, and it drops user-defined payloads - in this case BTMOB RAT. It also employs some interesting techniques like looping an inaudible MP3 to keep its service alive and monitoring the accelerometer to detect emulators. The sample analyzed in this post is part of a MiningDropper campaign that has been using trojanized versions of open-source applications for delivery. 
 
 Contents:
 * [Background](#background)
