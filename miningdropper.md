@@ -108,9 +108,11 @@ After the anti-analysis checks, the function XOR-decrypts an asset called `zgj97
 ![Loading the encrypted asset](/images/miningdropper/Pasted%20image%2020260423211348.png)
 
 *Opening the encrypted asset*
+
 ![The XOR key](/images/miningdropper/Pasted%20image%2020260423211602.png)
 
 *Hardcoded XOR key*
+
 ![XOR decrypting the asset](/images/miningdropper/Pasted%20image%2020260423212104.png)
 
 *XOR decryption*
