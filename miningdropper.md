@@ -1,3 +1,7 @@
+# MiningDropper
+
+![](/images/miningdropper/Pasted%20image%2020260501195519.png)
+
 MiningDropper, AKA BeatBanker, is an Android malware family that uses multiple stages of encrypted DEX and APK files loaded via native libraries. It serves two purposes: first, it downloads and executes a cryptocurrency miner, which it controls with Firebase messaging and monitors with a self-hosted Aptabase metrics server, and second it drops user-defined payloads - in this case BTMOB RAT. A recent MiningDropper campaign has been using trojanized versions of open-source applications for delivery. 
 
 Contents:
@@ -35,18 +39,19 @@ This rule looks for APKs that have invalid compression types. Apparently, the An
 
 ![PKWARE definition of the "stored" type](/images/miningdropper/Pasted%20image%2020260417220607.png)
 
-The sample I took a look at was `c038fb9ee8a4cb9cc1c7cb4b5383135380ac02ba040c00e97c100f697513d100`.
+## Sample: c038fb9ee8a4cb9cc1c7cb4b5383135380ac02ba040c00e97c100f697513d100
 
-![VirusTotal scan results for the sample](/images/miningdropper/Pasted%20image%2020260417220926.png)
+The sample is available on Malware Bazaar - [c038fb9ee8a4cb9cc1c7cb4b5383135380ac02ba040c00e97c100f697513d100](https://bazaar.abuse.ch/sample/c038fb9ee8a4cb9cc1c7cb4b5383135380ac02ba040c00e97c100f697513d100/).
 
-At first glance, a couple things stand out:
-1) The package name and main activity package are different. This looks a little suspicious, plus that roommates package name sounds interesting; I expected lots of fake gambling and pirated streaming apps so I was curious to see what this lure entailed.
+At first glance, a couple of things stand out:
 
-    ![Package information for the sample](/images/miningdropper/Pasted%20image%2020260417221144.png)
+The package name and main activity package are different. This looks a little suspicious, plus that roommates package name sounds interesting; I expected lots of fake gambling and pirated streaming apps so I was curious to see what this lure entailed.
 
-2) It requests commonly abused permissions for installing malicious payloads, keeping malware services alive, and detecting antivirus and other unwanted programs:
+![Package information for the sample](/images/miningdropper/Pasted%20image%2020260417221144.png)
+
+It also requests commonly abused permissions for installing malicious payloads, keeping malware services alive, and detecting antivirus and other unwanted programs:
  
-	![APK permissions](/images/miningdropper/Pasted%20image%2020260417221353.png)
+![APK permissions](/images/miningdropper/Pasted%20image%2020260417221353.png)
 
 It turns out this roommates app is some [open-source app](https://github.com/mattieapps/roommates-android) that hasn't been updated in eleven years. Seems like a random thing to pick up and add a backdoor to, but I guess it saves time if it's a nice, functional app ¯\\_(ツ)_/¯
 
@@ -191,7 +196,9 @@ The payload labeled "user" is a BTMOB RAT sample. This is a fully featured impla
 All of the related infrastructure I have observed uses a Let's Encrypt certificate with a CN for an `aptabase` subdomain. The shodan query `ssl.cert.subject.cn:aptabase` currently returns six results, three of which are definitely C2 domains for MiningDropper. Two more found on VirusTotal, `aptabase.khwdji319.xyz` and `aptabase.fud2026.xyz`, show that the operators seem to like the .xyz TLD. It looks like a domain-generation algorithm might be in use based on `jesfeoqrj3.xyz` and `khwdji319.xyz`.
 
 ## IOCs
+
 ### Network & Other IOCs:
+
 | Indicator                                                                 | Description                                                |
 | ------------------------------------------------------------------------- | ---------------------------------------------------------- |
 | A-SH-2395115531                                                           | Aptabase app key                                           |
@@ -213,6 +220,7 @@ All of the related infrastructure I have observed uses a Let's Encrypt certifica
 | 147.93.153[.]119                                                          | IP hosting the jesfeoqrj3 domain                           |
 
 ### Package & Class Names:
+
 | Name | Description |
 |-----------|--------------|
 |com.lsi.kidroncounterdisengage | Mining service package name |
@@ -221,6 +229,7 @@ All of the related infrastructure I have observed uses a Let's Encrypt certifica
 |com.google.installerlibrary.SplitApkInstaller| Third stage installer class |
 
 ### Files:
+
 | SHA256                                                           | Description                                                                   |
 | ---------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | c038fb9ee8a4cb9cc1c7cb4b5383135380ac02ba040c00e97c100f697513d100 | Initial APK - trojanized open-source application                              |
@@ -232,6 +241,7 @@ All of the related infrastructure I have observed uses a Let's Encrypt certifica
 |                                                                  |                                                                               |
 
 ## References:
+
 * https://securelist.com/beatbanker-miner-and-banker/119121/
 * https://cyble.com/blog/miningdropper-global-modular-android-malware/
 * https://web.archive.org/web/20250920032410/https://sandbox.qianxin.com/blog/2025/04/29/tq-sandbox-MAUI-sample-analysis/#%E5%8A%A8%E6%80%81%E5%88%86%E6%9E%90
