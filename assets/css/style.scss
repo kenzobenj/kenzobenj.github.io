@@ -1,0 +1,22 @@
+---
+---
+
+{% if site.theme %}
+@import "{{ site.theme }}";
+{% endif %}
+
+table th {
+  text-align: left;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+p > em:only-child {
+  display: block;
+  text-align: center;
+  font-style: italic;
+}
